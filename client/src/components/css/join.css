@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,700&display=swap");
+body {
+background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+width: 100%;
+}    
+.card {
+   width: 350px;
+   height: 250px;
+   margin: 0 auto; 
+   float: none; 
+   margin-top: 202px; 
+}
+.card-title {
+    text-align: center;
+    text-decoration: solid,underline,dotted;
+}
+
+
+.btn-primary {
+    background-color: #4A00E0;
+    margin-left: 105px ;
+}
+.btn-primary:hover {
+    background-color: #8E2DE2;
+    align-self: center;
+}
+.online {
+  width: 20px;
+  height: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.online1 {
+  width: 20px;
+  height: 15px;
+  margin-top: 5px;
+  padding: 2px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.info-chat ul li{
+  list-style-type: none;
+  display: flex;
+}
+.close-img {
+    height: 20px;
+    width: 20px;
+    margin-left: 230px;
+    
+}
+
+.room-heading {
+    background-color: rgb(201, 205, 205);
+    width: 400px;
+    height: 50px;
+    display: flex;
+    border-radius: 20px 20px 0px 0px;
+    margin-left: 50px;
+    margin-top: 20px;
+   
+}
+.room-heading h3 {
+    text-align: center;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+
+.room-heading  a {
+    align-items: right;
+}
+.chat-body  {
+    background-color: aliceblue;
+    width: 400px;
+    height: 500px;
+    margin-left: 50px;
+    border-top: 1px solid white;
+}
+
+.messg-chat {
+    display: flex;
+    background-color: rgb(246, 255, 255);
+    width: 400px;
+    height: 70px;
+    display: flex;
+    margin-left: 50px;
+    border-radius: 0px 0px 20px 20px;
+   
+
+}
+.messg-chat input {
+   height: 50px;
+   width: 300px;
+}
+.messg-chat button {
+    background-color: rgb(7, 105, 144);
+    width: 500px;
+    height: 50px;
+    color: aliceblue;
+    outline:none;
+
+}
+.messg-chat button:active {
+    box-shadow: none;
+}
+ 
+
+.info-chat {
+    text-align: center;
+   margin-top:200px;
+   margin-right: 50px;
+}
+
+.messg-chat input:hover {
+    border-color: navajowhite;
+ }
