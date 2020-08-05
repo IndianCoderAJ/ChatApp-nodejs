@@ -51,9 +51,7 @@ const Chat = ({location}) => {
                             <img  className="close-img" src="./images/close.jpg" alt=""/>
                         </Link>
                     </div>
-                    <div className="chat-body">
                      <Messages messages={messages} name={name}/>
-                    </div>
                     <div className="messg-chat">
                         <div className="form-group">
                             <input 
@@ -62,9 +60,13 @@ const Chat = ({location}) => {
                             onChange = {(event) => setMessage(event.target.value)}
                             onKeyPress = { (event) => event.key === 'Enter' ?  sendMessage(event) : null}
                             placeholder="Type the Message......"
+                            value={message}
                             />
                         </div>
-                        <button type="button">Send</button>
+                        <button 
+                        type="button"
+                        onClick={event => {sendMessage(event)}}
+                        >Send</button>
                     </div>
                 </div>
                 <div className="col-md-6">

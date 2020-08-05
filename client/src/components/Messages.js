@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import Scrolltobottom from 'react-scroll-to-bottom'
+import { css } from 'glamor';
+import ScrollToBottom  ,{ useScrollToBottom, useSticky }from 'react-scroll-to-bottom'
 import Message from './Message';
+import './css/Message.css';
+
 
 const Messages = ({messages,name}) => {
-  return (
-        <Scrolltobottom>
+
+  return (  
+        <ScrollToBottom  className="chat-body"> 
+        
        {messages.map( (message,i)=> <div key={i}><Message message={message} name={name} /></div>)}
-       </Scrolltobottom>
+        <div> &nbsp;&nbsp; </div>
+       </ScrollToBottom >
   )
 }
 
