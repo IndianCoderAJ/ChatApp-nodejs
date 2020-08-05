@@ -102,9 +102,11 @@ width: 100%;
     color: aliceblue;
     outline:none;
 
+
 }
+
 .messg-chat button:active {
-    box-shadow: none;
+  color: none;
 }
  
 

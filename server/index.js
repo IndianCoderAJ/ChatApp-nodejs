@@ -14,7 +14,7 @@ io.on('connection',(socket) =>{
     socket.on('join', ( { name, room}, callack) => {
         const { errors, user} = addUser({id:socket.id, name, room});
         if(errors) return callack(errors);
-        socket.emit('message',{user:'Admin', text:`${user.name} welcome to Room ${user.room}`} );
+        socket.emit('message',{user:'Admin', text:`${user.name} welcome to the Room ${user.room}`} );
         socket.broadcast.to(user.room).emit('message', { user:'admin', text:`${user.name} has Join`});  
         socket.join(user.room); 
         callack();  

@@ -8,11 +8,11 @@ const Join = () => {
 
     return(
     <React.Fragment>
-      <div class="Login-main-container">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Join Room</h5>
-              <div class="form-group">
+      <div className="Login-main-container">
+        <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Join Room</h5>
+              <div className="form-group">
                 <input
                  type="text"
                   className="form-control"
@@ -22,7 +22,7 @@ const Join = () => {
                    onChange={(event) => setName(event.target.value)}
                   />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input
                  type="text"
                   className="form-control"

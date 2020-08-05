@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import queryString from'query-string'
 import io from 'socket.io-client';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Messages from './Messages';
 
 let socket;
 const Chat = ({location}) => {
@@ -32,15 +33,13 @@ const Chat = ({location}) => {
     }, [messages])
 
 // function for sending messages
- const sendMessage =(event) => {
+ const sendMessage = (event) => {
     event.preventDefault();
-
      if(message){
          socket.emit('sendMessage', message ,() => setMessage(''));
      }
  } 
 
- console.log(messages,message);
     return(
         <React.Fragment>
              <div className=" row">
@@ -53,7 +52,7 @@ const Chat = ({location}) => {
                         </Link>
                     </div>
                     <div className="chat-body">
-                    ddhgk
+                     <Messages messages={messages} name={name}/>
                     </div>
                     <div className="messg-chat">
                         <div className="form-group">
@@ -62,7 +61,7 @@ const Chat = ({location}) => {
                             className="form-control" 
                             onChange = {(event) => setMessage(event.target.value)}
                             onKeyPress = { (event) => event.key === 'Enter' ?  sendMessage(event) : null}
-                            placeholder="typing......"
+                            placeholder="Type the Message......"
                             />
                         </div>
                         <button type="button">Send</button>
