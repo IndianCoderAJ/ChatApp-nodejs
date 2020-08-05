@@ -22,13 +22,13 @@ io.on('connection',(socket) =>{
 
     socket.on('sendMessage',(message,callback) => {
         const {currentUser} = getUser(socket.id);
-        console.log(currentUser);
         io.to(currentUser.room).emit('message',{user:currentUser.name,text:message});
         callback();
     })
 
     socket.on('disconnect',()=> {
-        console.log("user had disconnected");
+        const {currentUser} = getUser(socket.id);
+        socket.broadcast.to(currentUser.room).emit('message', { user:'Admin', text:`${currentUser.name} has left`});
     });
 });
 

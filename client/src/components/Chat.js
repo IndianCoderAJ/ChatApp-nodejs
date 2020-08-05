@@ -31,6 +31,7 @@ const Chat = ({location}) => {
            setMessages([...messages,message]);
         })
     }, [messages])
+  
 
 // function for sending messages
  const sendMessage = (event) => {
@@ -50,6 +51,9 @@ const Chat = ({location}) => {
                         <Link to='/'>
                             <img  className="close-img" src="./images/close.jpg" alt=""/>
                         </Link>
+                        <a href='/' class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </a>
                     </div>
                      <Messages messages={messages} name={name}/>
                     <div className="messg-chat">
