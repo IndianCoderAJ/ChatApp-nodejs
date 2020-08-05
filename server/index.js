@@ -14,8 +14,12 @@ io.on('connection',(socket) =>{
     socket.on('join', ( { name, room}, callack) => {
         const { errors, user} = addUser({id:socket.id, name, room});
         if(errors) return callack(errors);
-        socket.emit('message',{user:'Admin', text:`${user.name} welcome to the Room ${user.room}`} );
-        socket.broadcast.to(user.room).emit('message', { user:'Admin', text:`${user.name} has Join`});  
+        let  alluser = getUserInRoom(room);
+        alluser = JSON.stringify(alluser);
+        socket.emit('message',{user:'Admin', text:`${user.name} welcome to the Room ${user.room}`});
+        socket.emit('roomData',{alluser:`${alluser}`});
+        socket.broadcast.to(user.room).emit('roomData',{alluser:`${alluser}`});
+        socket.broadcast.to(user.room).emit('message', { user:'Admin', text:`${user.name} has Join`}); 
         socket.join(user.room); 
         callack();  
     });
@@ -27,8 +31,13 @@ io.on('connection',(socket) =>{
     })
 
     socket.on('disconnect',()=> {
-        const {currentUser} = getUser(socket.id);
-        socket.broadcast.to(currentUser.room).emit('message', { user:'Admin', text:`${currentUser.name} has left`});
+           const remove = removeUser(socket.id);
+           console.log('disconnected');
+        socket.broadcast.to(remove[0].room).emit('message', { user:'Admin', text:`${remove[0].name} has left`});
+        let  alluser = getUserInRoom(remove[0].room);
+        alluser = JSON.stringify(alluser); 
+        console.log(alluser);
+        socket.broadcast.to(remove[0].room).emit('roomData',{alluser:`${alluser}`});  
     });
 });
 

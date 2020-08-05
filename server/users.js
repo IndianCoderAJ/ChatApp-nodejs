@@ -9,19 +9,19 @@ const addUser = ({ id, name, room}) => {
      errors = "User Already In a Room"
      return{errors};
  }
- const user = { id, name, room};
+ const user = {id, name, room};
  users.push(user);
  return {user}
 }
 
-const removeUser = ({id}) => {
-
-    const index = user.findIndex((user) => { user.id === id});
-    if(index !== -1) {
-       return users.splice(index, 1)[0];
+const removeUser = (id) => {
+    const index = users.findIndex((user) =>  user.id === id );
+    if(index > -1) {
+           let remv = users.splice(index, 1);
+           console.log(remv);
+           return remv;
     }
-    users
-
+    return users
 }
 
 const getUser = (id) => {
@@ -30,6 +30,9 @@ const getUser = (id) => {
  };
 
 
-const getUserInRoom = (room) => users.filter((user) => {user.room == room});
+const getUserInRoom = (room) => {
+    let allUser =  users.filter((user) => user.room === room)
+    return (allUser)
+};
 
 module.exports  = { addUser, removeUser, getUser, getUserInRoom}

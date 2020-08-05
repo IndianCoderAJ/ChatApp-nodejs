@@ -8,6 +8,7 @@ let socket;
 const Chat = ({location}) => {
     const [name,setName] = useState('');
     const [room,setRoom] = useState('');
+    const[onlineUser,setonlineuser] = useState([ ]);
     const[message,setMessage] = useState('');
     const[messages,setMessages] = useState([ ]);
 
@@ -20,7 +21,8 @@ const Chat = ({location}) => {
         socket.emit('join', {name, room },() => {
             
         });
-        return() => {
+        return () => {
+           
             socket.emit('disconnect');
             socket.off();
         }
@@ -29,10 +31,22 @@ const Chat = ({location}) => {
     useEffect(() => {
         socket.on('message', (message) => {
            setMessages([...messages,message]);
+        
         })
-    }, [messages])
-  
 
+        socket.on('roomData',(data) => {
+            console.log(data.alluser);
+            let allUser = JSON.parse(data.alluser);
+           setonlineuser(allUser);
+           console.log(allUser);
+        });
+        return () => {
+            
+            socket.emit('disconnect');
+            socket.off();
+        }; 
+    }, [messages,onlineUser])
+  
 // function for sending messages
  const sendMessage = (event) => {
     event.preventDefault();
@@ -79,10 +93,17 @@ const Chat = ({location}) => {
                     <h3>Created with React, Express, Node and Socket.IO ❤️</h3>
                         <h2>People currently chatting:</h2>
                         <ul>
-                            <li>  
-                                <img className="online1" src="./images/onlin.png"></img>
-                                <h4>Akshay</h4> 
-                            </li>
+                             
+                                
+                                {onlineUser.map((user,i) => {
+                                    return (
+                                <li> 
+                                    <img className="online1" src="./images/onlin.png"></img>   
+                                    <h8 key={i}>{user.name}</h8>
+                                </li>
+                                    )
+                                })}
+                            
                         </ul>
                     
                     </div>
