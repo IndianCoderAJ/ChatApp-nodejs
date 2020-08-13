@@ -12,7 +12,7 @@ const Chat = ({location}) => {
     const[message,setMessage] = useState('');
     const[messages,setMessages] = useState([ ]);
 
-    let ENDPOINT = 'localhost:4000';
+    let ENDPOINT = 'https://noderealtimechat.herokuapp.com/';
     useEffect(() => {
         const { name, room} = queryString.parse(location.search);
         setName(name);
@@ -60,7 +60,6 @@ const Chat = ({location}) => {
              <div className=" row">
                 <div className="col-md-6">
                     <div className="room-heading">
-                        <img className="online" src="./images/onlin.png"></img>
                         <h3>{room}</h3>
                         <Link to='/'>
                             <img  className="close-img" src="./images/close.jpg" alt=""/>
@@ -87,7 +86,7 @@ const Chat = ({location}) => {
                         >Send</button>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 info">
                     <div className="info-chat">
                     <h1>Realtime Chat Application 💬</h1>
                     <h3>Created with React, Express, Node and Socket.IO ❤️</h3>

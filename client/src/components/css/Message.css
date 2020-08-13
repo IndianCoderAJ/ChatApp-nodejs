@@ -1,3 +1,5 @@
+
+
 .chat-body  {
     background-color: aliceblue;
     width: 400px;
@@ -5,6 +7,7 @@
     margin-left: 50px;
     border-top: 1px solid white;
 }
+
 .messg-own {
     overflow-wrap: normal;
     overflow-wrap: break-word;
@@ -42,6 +45,7 @@
         white-space: pre-line;
         line-height:0;
     }
+
    .adminMesg {
        margin-top: 20px;
        text-align: center;
@@ -78,7 +82,7 @@
         margin-left:10%
     }
     
-    .bubble-left:after,
+    /* .bubble-left:after,
     .bubble-left:before,
     .bubble-right:after,
     .bubble-right:before {
@@ -90,8 +94,8 @@
         border-color: transparent pink;
         display: block;
         width: 0;
-    }
-    
+    } */
+/*     
     .bubble-left:after,
     .bubble-left:before {
         border-width: 13px 17px 13px 0;
@@ -126,5 +130,22 @@
         right:-19px;
         border-color: transparent red;
         z-index: 0;
-    }
+    } */
     
+    @media only screen and (max-width: 720px) {
+
+        .chat-body  {
+            background-color: aliceblue;
+            width: 300px;
+            height: 500px;
+            margin-left: 50px;
+            border-top: 1px solid white;
+        }
+        .close-img {
+            height: 20px;
+            width: 20px;
+            margin-left: 190px;
+            
+        }
+       
+      }
